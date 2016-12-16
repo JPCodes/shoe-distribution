@@ -35,3 +35,12 @@ describe('Add a brand to the store', {:type => :feature}) do
     expect(page).to have_content('Nike products')
   end
 end
+
+describe('Add a new brand to the system', {:type => :feature}) do
+  it('allows a user to add a new brand') do
+    visit('/brands')
+    fill_in('name_input', :with => 'Converse')
+    click_button('Add brand')
+    expect(page).to have_content('Converse')
+  end
+end
