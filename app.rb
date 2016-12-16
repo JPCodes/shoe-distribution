@@ -14,6 +14,10 @@ end
 
 post('/stores/create_new_store') do
   name_input = params[:name_input]
-  new_store = Store.create({:name => name_input})
-  redirect('/stores')
+  @new_store = Store.create({:name => name_input})
+  if @new_store.save
+    redirect('/stores')
+  else
+    erb(:error)
+  end
 end

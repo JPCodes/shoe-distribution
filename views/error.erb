@@ -1,0 +1,10 @@
+<h3>Oops there were some errors:</h3>
+
+<ul>
+  <% @new_store.errors().full_messages().each() do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+
+<p><a href="/">Home</a></p>
