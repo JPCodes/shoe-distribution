@@ -12,11 +12,6 @@ get('/stores') do
   erb(:stores)
 end
 
-get('/stores/store/:id') do
-  @current_store = Store.find(params[:id])
-  erb(:store)
-end
-
 post('/stores/create_new_store') do
   name_input = params[:name_input]
   @new_store = Store.create({:name => name_input})
@@ -27,6 +22,21 @@ post('/stores/create_new_store') do
   end
 end
 
+get('/stores/store/:id') do
+  @current_store = Store.find(params[:id])
+  erb(:store)
+end
+
+patch('/store/:id/update_name') do
+  @current_store = Store.find(params[:id])
+  new_name = params[:new_name]
+  if @current_store.update({:name => new_name})
+    puts "Wtf"
+    redirect("/stores/store/#{@current_store.id}")
+  else
+    erb(:error)
+  end
+end
 
 get('/brands') do
   @all_brands = Brand.all()
