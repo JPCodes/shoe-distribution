@@ -11,4 +11,11 @@ describe(Store) do
     end
   end
 
+  describe('#store') do
+    it "disallows blank name with validation" do
+      test_store = Store.new({:name => ""})
+      expect(test_store.save).to(eq(false))
+    end
+  end
+
 end
