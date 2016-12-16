@@ -13,6 +13,23 @@
 
 <br>
 <br>
+<% if @all_brands.any? %>
+<form action="/store/<%= @current_store.id %>/add_brand" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <select class="form-control" name="added_brand">
+    <% @all_brands.each do |brand| %>
+      <option value="<%= brand.id %>"><%= brand.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary">Add brand to this store</button>
+</form>
+<% else %>
+  <p>Add brands to the system to see the form.</p>
+  <p><a href="/brands">Add/Manage Brands</a></p>
+<% end %>
+
+<br>
 
 <form action="/store/<%= @current_store.id %>/update_name" method="post">
   <input type="hidden" name="_method" value="patch">
