@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: shoe_ceo_development
+
+test:
+  adapter: postgresql
+  database: shoe_ceo_test
