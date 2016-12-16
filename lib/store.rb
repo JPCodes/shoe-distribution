@@ -8,7 +8,7 @@ class Store < ActiveRecord::Base
     current_store = Store.find(self.id)
     current_store.brands.each do |brand|
       if brand.name == current_brand.name
-        errors.add :name, 'already exists in this store'
+        errors.add 'brand ' + :name.to_s, 'already exists in this store'
         return false
       end
     end
