@@ -18,4 +18,11 @@ describe(Store) do
     end
   end
 
+  describe('#capitalize_name') do
+    it "capitalizes inputted name" do
+      test_store = Store.create({:name => "nike outlet"})
+      expect(test_store.name).to(eq('Nike outlet'))
+    end
+  end
+
 end
