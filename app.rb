@@ -21,3 +21,9 @@ post('/stores/create_new_store') do
     erb(:error)
   end
 end
+
+
+get('/brands') do
+  @all_brands = Brand.all()
+  erb(:brands)
+end

@@ -1,0 +1,13 @@
+<h1>Brands Management</h1>
+
+<% if @all_brands.any? %>
+<ul>
+  <% @all_brands.each do |brand| %>
+    <li><%= brand.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>You have no brands.</p>
+<% end %>
+
+<p><a href="/">Home</a></p>
