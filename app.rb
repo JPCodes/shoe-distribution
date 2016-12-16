@@ -12,6 +12,11 @@ get('/stores') do
   erb(:stores)
 end
 
+get('/stores/store/:id') do
+  @current_store = Store.find(params[:id])
+  erb(:store)
+end
+
 post('/stores/create_new_store') do
   name_input = params[:name_input]
   @new_store = Store.create({:name => name_input})
