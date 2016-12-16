@@ -10,6 +10,16 @@ before() do
   test_brand = Brand.create({:name => 'Nike'})
 end
 
+describe('Delete', {:type => :feature}) do
+  it('allows a user to delete a store') do
+    Store.create({:name => 'The shoe place'})
+    visit('/stores')
+    click_link('The shoe place')
+    click_button('Delete Store')
+    expect(page).not_to have_content('The shoe place')
+  end
+end
+
 describe('Views /stores', {:type => :feature}) do
   it('tests before()') do
     visit('/stores')
@@ -26,6 +36,7 @@ describe('Add a new store and see the store information', {:type => :feature}) d
     expect(page).to have_content('Manage Store: Nike outlet')
   end
 end
+
 
 describe('Add a brand to the store', {:type => :feature}) do
   it('allows a user to add a brand to a store') do
