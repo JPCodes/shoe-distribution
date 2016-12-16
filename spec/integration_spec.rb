@@ -55,3 +55,13 @@ describe('Add a new brand to the system', {:type => :feature}) do
     expect(page).to have_content('Converse')
   end
 end
+
+describe('Edit brand', {:type => :feature}) do
+  it('allows a user to edit a brand name') do
+    visit('/brands')
+    click_link('Nike')
+    fill_in('new_name', :with => 'Jordan')
+    click_button('Update')
+    expect(page).to have_content('Jordan')
+  end
+end
