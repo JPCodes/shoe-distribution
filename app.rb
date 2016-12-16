@@ -32,8 +32,12 @@ end
 patch('/store/:id/add_brand') do
   @current_store = Store.find(params[:id])
   @added_brand = Brand.find(params[:added_brand])
-  @current_store.brands.push(@added_brand)
-  redirect("/stores/store/#{@current_store.id}")
+  if 
+    @current_store.brands.push(@added_brand)
+    redirect("/stores/store/#{@current_store.id}")
+  else
+    erb(:error)
+  end
 end
 
 patch('/store/:id/update_name') do
