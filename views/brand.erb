@@ -1,1 +1,12 @@
-<h1>Brand</h1>
+<h1>Manage Brand: <%= @current_brand.name %></h1>
+
+<form action="/brand/<%= @current_brand.id %>/update_name" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="new_name">Edit <%= @current_brand.name %>'s name</label>
+  <input type="text" name="new_name" id="new_name" class="form-control">
+  <br>
+  <button type="submit" class="btn btn-warning">Update</button>
+</form>
+
+<p><a href="/">Home</a></p>
+<p><a href="/brands">Back to Brands</a></p>

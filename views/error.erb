@@ -24,6 +24,14 @@
   </ul>
 <% end %>
 
+<% if !@current_brand.nil? %>
+  <ul>
+    <% @current_brand.errors().full_messages().each() do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <p><a href="/">Home</a></p>
 <p><a href="/stores">View Stores</a></p>
 <p><a href="/brands">View Brands</a></p>
