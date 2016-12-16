@@ -24,6 +24,7 @@ end
 
 get('/stores/store/:id') do
   @current_store = Store.find(params[:id])
+  @current_store_brands = @current_store.brands
   erb(:store)
 end
 

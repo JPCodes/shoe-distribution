@@ -1,5 +1,19 @@
 <h1>Manage Store: <%= @current_store.name %></h1>
 
+<% if @current_store_brands.any? %>
+  <h3><%= @current_store.name %> carries:</h3>
+  <ul>
+    <% @current_store_brands.each do |brand| %>
+    <li><%= brand.name %> products</li>
+    <% end %>
+  </ul>
+<% else %>
+  This store does not carry any brands.
+<% end %>
+
+<br>
+<br>
+
 <form action="/store/<%= @current_store.id %>/update_name" method="post">
   <input type="hidden" name="_method" value="patch">
   <label for="new_name">Edit <%= @current_store.name %>'s name</label>
@@ -8,9 +22,11 @@
   <button type="submit" class="btn btn-warning">Update Store</button>
 </form>
 
+<br>
+
 <form action="/store/<%= @current_store.id %>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit">Delete Store</button>
+  <button type="submit" class="btn btn-danger">Delete Store</button>
 </form>
 
 <p><a href="/">Home</a></p>
