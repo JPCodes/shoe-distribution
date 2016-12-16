@@ -26,3 +26,12 @@ describe('Add a new store and see the store information', {:type => :feature}) d
     expect(page).to have_content('Manage Store: Nike outlet')
   end
 end
+
+describe('Add a brand to the store', {:type => :feature}) do
+  it('allows a user to add a brand to a store') do
+    visit('/stores')
+    click_link('Shoe central')
+    click_button('Add brand to this store')
+    expect(page).to have_content('Nike products')
+  end
+end

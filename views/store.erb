@@ -16,7 +16,7 @@
 <% if @all_brands.any? %>
 <form action="/store/<%= @current_store.id %>/add_brand" method="post">
   <input type="hidden" name="_method" value="patch">
-  <select class="form-control" name="added_brand">
+  <select class="form-control" name="added_brand" id="added_brand">
     <% @all_brands.each do |brand| %>
       <option value="<%= brand.id %>"><%= brand.name %></option>
     <% end %>
