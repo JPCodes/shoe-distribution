@@ -6,7 +6,7 @@
 
 ## Description
 
-This Ruby app has a front end interface where a user can create clients and stylists. The user can also update and delete these entries and assign clients to a stylist.
+This Ruby app has a front end interface where a user can create stores and brands. The user can also update and delete these entries and assign brands to a store.
 
 ## Setup/Installation Requirements
 
