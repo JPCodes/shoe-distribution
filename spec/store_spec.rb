@@ -33,4 +33,13 @@ describe(Store) do
     end
   end
 
+  describe('#brand_unique_per_store') do
+    it "disallows adding same brand twice to the same store" do
+      test_store = Store.create({:name => "Store"})
+      test_brand = Brand.create({:name => "Brand"})
+      test_store.brands.push(test_brand)
+      expect(test_store.brand_unique_per_store(test_brand)).to(eq(false))
+    end
+  end
+
 end

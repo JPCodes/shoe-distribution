@@ -32,7 +32,7 @@ end
 patch('/store/:id/add_brand') do
   @current_store = Store.find(params[:id])
   @added_brand = Brand.find(params[:added_brand])
-  if 
+  if @current_store.brand_unique_per_store(@added_brand)
     @current_store.brands.push(@added_brand)
     redirect("/stores/store/#{@current_store.id}")
   else
