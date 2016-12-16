@@ -31,7 +31,6 @@ patch('/store/:id/update_name') do
   @current_store = Store.find(params[:id])
   new_name = params[:new_name]
   if @current_store.update({:name => new_name})
-    puts "Wtf"
     redirect("/stores/store/#{@current_store.id}")
   else
     erb(:error)
@@ -51,4 +50,9 @@ post('/brands/create_new_brand') do
   else
     erb(:error)
   end
+end
+
+get('/brands/brand/:id') do
+  @current_brand = Brand.find(params[:id])
+  erb(:brand)
 end
