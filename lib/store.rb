@@ -4,7 +4,7 @@ class Store < ActiveRecord::Base
   validates_uniqueness_of :name
   before_save(:capitalize_name)
 
-  define_method(:brand_unique_per_store) do |current_brand|
+  def brand_unique_per_store(current_brand)
     current_store = Store.find(self.id)
     current_store.brands.each do |brand|
       if brand.name == current_brand.name
