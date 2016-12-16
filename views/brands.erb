@@ -10,4 +10,14 @@
   <p>You have no brands.</p>
 <% end %>
 
+<br>
+
+<h4>New Brand Entry Form:</h4>
+<form action="/brands/create_new_brand" method="post">
+<label for="name_input">Name</label>
+<input type="text" name="name_input" id="name_input" class="form-control">
+<br>
+<button type="submit" class="btn btn-primary">Add brand</button>
+</form>
+
 <p><a href="/">Home</a></p>

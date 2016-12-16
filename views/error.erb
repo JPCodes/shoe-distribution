@@ -1,10 +1,19 @@
 <h3>Oops there were some errors:</h3>
 
-<ul>
-  <% @new_store.errors().full_messages().each() do |message| %>
-    <li><%= message %></li>
-  <% end %>
-</ul>
+<% if !@new_store.nil? %>
+  <ul>
+    <% @new_store.errors().full_messages().each() do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
+<% if !@new_brand.nil? %>
+  <ul>
+    <% @new_brand.errors().full_messages().each() do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <p><a href="/">Home</a></p>

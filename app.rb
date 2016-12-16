@@ -27,3 +27,13 @@ get('/brands') do
   @all_brands = Brand.all()
   erb(:brands)
 end
+
+post('/brands/create_new_brand') do
+  name_input = params[:name_input]
+  @new_brand = Brand.create({:name => name_input})
+  if @new_brand.save
+    redirect('/brands')
+  else
+    erb(:error)
+  end
+end
